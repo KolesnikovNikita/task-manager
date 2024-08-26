@@ -35,8 +35,12 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onEdit }) => {
             </td>
             <td>{task.file ? <a href={URL.createObjectURL(task.file)}>Скачать файл</a> : 'Нет файла'}</td>
             <td>
-                <button onClick={() => onEdit(task)}>Редактировать</button>
-                <button onClick={handleDelete}>Удалить</button>
+                <button className="border-2 p-1" onClick={() => onEdit(task)}>
+                    Редактировать
+                </button>
+                <button className="border-2 p-1" onClick={handleDelete}>
+                    Удалить
+                </button>
             </td>
         </tr>
     );

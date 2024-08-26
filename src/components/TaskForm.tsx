@@ -61,21 +61,42 @@ const TaskForm: React.FC<TaskFormProps> = ({ taskToEdit, onCancelEdit }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="max-w-md mx-auto border-2 border-neutral-950 rounded-lg p-3 mb-4" onSubmit={handleSubmit}>
             <div>
-                <label>Название задачи:</label>
-                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
+                <label className="mr-2">Название задачи:</label>
+                <input
+                    type="text"
+                    className="border-b-2 outline-0	"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                />
+            </div>
+            <div className="mb-2">
+                <label className="mr-2">Описание задачи:</label>
+                <textarea
+                    value={description}
+                    className="resize-none"
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+            </div>
+            <div className="mb-2">
+                <label className="mr-2 ">Прикрепить файл:</label>
+                <input
+                    className="block w-full text-sm text-slate-500
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-full file:border-0
+      file:text-sm file:font-semibold
+      file:bg-violet-50 file:text-violet-700
+      hover:file:bg-violet-100"
+                    type="file"
+                    onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
+                />
             </div>
             <div>
-                <label>Описание задачи:</label>
-                <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-            </div>
-            <div>
-                <label>Прикрепить файл:</label>
-                <input type="file" onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)} />
-            </div>
-            <div>
-                <button type="submit">{taskToEdit ? 'Обновить задачу' : 'Добавить задачу'}</button>
+                <button className="border-4 border-indigo-500/75 p-1 " type="submit">
+                    {taskToEdit ? 'Обновить задачу' : 'Добавить задачу'}
+                </button>
                 {taskToEdit && onCancelEdit && (
                     <button type="button" onClick={onCancelEdit}>
                         Отмена

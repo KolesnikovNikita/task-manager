@@ -17,12 +17,12 @@ const TaskList: React.FC<TaskListProps> = ({ onEditTask }) => {
     const { tasks } = taskContext;
 
     return (
-        <div className="justify-center">
-            <h2>Список задач</h2>
+        <div className="max-w-xl mx-auto">
+            <h2 className="text-xl font-normal">Список задач: </h2>
             {tasks.length === 0 ? (
                 <p className="text-red-500">Нет задач для отображения.</p>
             ) : (
-                <table>
+                <table className="table-auto border-collapse">
                     <thead>
                         <tr>
                             <th>Название</th>

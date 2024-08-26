@@ -1,4 +1,4 @@
-import React, { createContext, useState, FC, PropsWithChildren } from 'react';
+import { createContext, useState, FC, PropsWithChildren } from 'react';
 import { Task } from '../models/Task';
 
 interface TaskContextProps {
