@@ -1,10 +1,12 @@
 import HomePage from './pages/HomePage';
+import { TaskProvider } from './context/TaskContext';
+import './styles/index.css';
 
 function App() {
     return (
-        <div>
+        <TaskProvider>
             <HomePage />
-        </div>
+        </TaskProvider>
     );
 }
 

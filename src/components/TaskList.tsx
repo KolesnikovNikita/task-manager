@@ -11,16 +11,16 @@ const TaskList: React.FC<TaskListProps> = ({ onEditTask }) => {
     const taskContext = useContext(TaskContext);
 
     if (!taskContext) {
-        return <p>Ошибка: Контекст задач не найден.</p>;
+        return <p className="text-red-500"> Ошибка: Контекст задач не найден.</p>;
     }
 
     const { tasks } = taskContext;
 
     return (
-        <div>
+        <div className="justify-center">
             <h2>Список задач</h2>
             {tasks.length === 0 ? (
-                <p>Нет задач для отображения.</p>
+                <p className="text-red-500">Нет задач для отображения.</p>
             ) : (
                 <table>
                     <thead>

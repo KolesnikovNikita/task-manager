@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { TaskContext, TaskContextProps } from '../context/TaskContext';
+import { TaskContext } from '../context/TaskContext';
 import { Task } from '../models/Task';
 
 interface TaskFormProps {
@@ -8,10 +8,10 @@ interface TaskFormProps {
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ taskToEdit, onCancelEdit }) => {
-    const taskContext = useContext<TaskContextProps | undefined>(TaskContext);
+    const taskContext = useContext(TaskContext);
 
     if (!taskContext) {
-        throw new Error('Контекст задач не найден'); // Обработка ситуации, если taskContext не определен
+        throw new Error('Контекст задач не найден');
     }
 
     const { addTask, updateTask } = taskContext;
