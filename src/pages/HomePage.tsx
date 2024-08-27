@@ -15,8 +15,8 @@ const HomePage: React.FC = () => {
     };
 
     return (
-        <div>
-            <h1 className="text-center my-2 font-bold text-xl">Менеджер задач</h1>
+        <div className="bg-slate-600 min-h-screen pt-6 flex flex-col">
+            <h1 className="text-center mb-2 text-white font-bold text-xl">Менеджер задач</h1>
             <TaskForm taskToEdit={taskToEdit} onCancelEdit={handleCancelEdit} />
             <TaskList onEditTask={handleEditTask} />
         </div>

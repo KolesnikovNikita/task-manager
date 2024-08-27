@@ -27,14 +27,16 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onEdit }) => {
 
     return (
         <tr>
-            <td>{task.title}</td>
-            <td>{task.description}</td>
-            <td>
-                <input type="checkbox" checked={task.completed} onChange={handleStatusChange} />
+            <td className="border border-slate-700 bg-slate-900 text-white px-2">{task.title}</td>
+            <td className="border border-slate-700 bg-slate-900 text-white px-2">{task.description}</td>
+            <td className="border border-slate-700 bg-slate-900 text-white px-2">
+                <input type="checkbox" className="mr-2" checked={task.completed} onChange={handleStatusChange} />
                 {task.completed ? 'Выполнено' : 'Не выполнено'}
             </td>
-            <td>{task.file ? <a href={URL.createObjectURL(task.file)}>Скачать файл</a> : 'Нет файла'}</td>
-            <td>
+            <td className="border border-slate-700 bg-slate-900 text-white">
+                {task.file ? <a href={URL.createObjectURL(task.file)}>Скачать файл</a> : 'Нет файла'}
+            </td>
+            <td className="border border-slate-700 bg-slate-900 text-white">
                 <button className="border-2 p-1" onClick={() => onEdit(task)}>
                     Редактировать
                 </button>

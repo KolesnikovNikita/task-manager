@@ -61,27 +61,32 @@ const TaskForm: React.FC<TaskFormProps> = ({ taskToEdit, onCancelEdit }) => {
     };
 
     return (
-        <form className="max-w-md mx-auto border-2 border-neutral-950 rounded-lg p-3 mb-4" onSubmit={handleSubmit}>
-            <div>
-                <label className="mr-2">Название задачи:</label>
+        <form
+            className="flex flex-col mx-auto mb-6 p-6 justify-center shadow-lg rounded-md items-center bg-white"
+            onSubmit={handleSubmit}
+        >
+            <div className="w-60 mt-3">
+                <label className="block text-base mb-2">Название задачи:</label>
                 <input
                     type="text"
-                    className="border-b-2 outline-0	"
+                    className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
+                    placeholder="Введите название задачи..."
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
                 />
             </div>
-            <div className="mb-2">
-                <label className="mr-2">Описание задачи:</label>
+            <div className="w-60 mt-3">
+                <label className="block text-base mb-2">Описание задачи:</label>
                 <textarea
                     value={description}
-                    className="resize-none"
+                    className="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
                     onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Введите описание..."
                 />
             </div>
-            <div className="mb-2">
-                <label className="mr-2 ">Прикрепить файл:</label>
+            <div className="w-60 mt-3">
+                <label className="block text-base mb-2">Прикрепить файл:</label>
                 <input
                     className="block w-full text-sm text-slate-500
       file:mr-4 file:py-2 file:px-4
@@ -93,8 +98,8 @@ const TaskForm: React.FC<TaskFormProps> = ({ taskToEdit, onCancelEdit }) => {
                     onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
                 />
             </div>
-            <div>
-                <button className="border-4 border-indigo-500/75 p-1 " type="submit">
+            <div className="w-60 mt-3">
+                <button className="border-2 bg-indigo-600 text-white text-center w-full mt-3 py-1 px-5" type="submit">
                     {taskToEdit ? 'Обновить задачу' : 'Добавить задачу'}
                 </button>
                 {taskToEdit && onCancelEdit && (
